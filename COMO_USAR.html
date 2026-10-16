@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Casa da V�� 3D: como usar</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <style>body{font-family:system-ui,Segoe UI,Roboto,sans-serif;max-width:820px;margin:0 auto;padding:24px 16px;line-height:1.6;color:#222;background:#fff}
+  h1{border-bottom:2px solid #e9b44c;padding-bottom:6px;margin-top:40px}h2{margin-top:28px;color:#7a5a12}
+  table{border-collapse:collapse;width:100%}td,th{border:1px solid #ddd;padding:6px 10px;text-align:left}th{background:#f6f1e6}
+  code{background:#f3f3f3;padding:1px 5px;border-radius:4px}hr{border:0;border-top:1px solid #ddd;margin:32px 0}li{margin:4px 0}
+  blockquote{border-left:4px solid #e9b44c;margin:0;padding:4px 16px;background:#fbf6ea}</style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Casa da V�� 3D: como usar</h1>
+</header>
+<h1 id="casa-da-vó-3d">Casa da Vó 3D</h1>
+<p>Um jogo em primeira pessoa, no navegador, para andar pela casa
+escaneada.</p>
+<p>Este guia tem duas partes:</p>
+<ul>
+<li><strong>Parte 1:</strong> jogar no seu computador (cerca de 5
+minutos).</li>
+<li><strong>Parte 2:</strong> colocar na internet com um link para
+compartilhar (cerca de 20 minutos, só na primeira vez).</li>
+</ul>
+<hr />
+<h1 id="parte-1-jogar-no-seu-computador-windows">PARTE 1: Jogar no seu
+computador (Windows)</h1>
+<p>Por segurança, o navegador não abre o jogo se você clicar direto no
+<code>index.html</code>. Por isso o jogo precisa de um pequeno
+“servidor” rodando no seu computador. O arquivo
+<code>ABRIR_JOGO_WINDOWS.bat</code> faz isso sozinho, mas antes é
+preciso ter o Python instalado.</p>
+<h2 id="passo-1-descompactar">Passo 1: Descompactar</h2>
+<ol type="1">
+<li>Encontre o arquivo <code>casa-da-vo-jogo.zip</code> que você baixou
+(normalmente na pasta <strong>Downloads</strong>).</li>
+<li>Clique nele com o <strong>botão direito</strong> e escolha
+<strong>Extrair tudo…</strong></li>
+<li>Clique em <strong>Extrair</strong>.</li>
+<li>Vai abrir uma pasta. Entre na pasta <strong>jogo</strong>. Dentro
+dela você deve ver o <code>index.html</code>, o
+<code>ABRIR_JOGO_WINDOWS.bat</code> e as pastas <code>assets</code>,
+<code>css</code>, <code>js</code> e <code>vendor</code>.</li>
+</ol>
+<h2 id="passo-2-instalar-o-python-só-na-primeira-vez">Passo 2: Instalar
+o Python (só na primeira vez)</h2>
+<p>Se você já tem o Python instalado, pule para o Passo 3.</p>
+<ol type="1">
+<li>Clique no menu <strong>Iniciar</strong> do Windows e digite
+<strong>Microsoft Store</strong>. Abra a loja.</li>
+<li>Na busca da loja, digite <strong>Python 3.12</strong>.</li>
+<li>Escolha o resultado <strong>Python 3.12</strong> publicado pela
+<strong>Python Software Foundation</strong>.</li>
+<li>Clique em <strong>Obter</strong> (ou <strong>Instalar</strong>) e
+espere terminar.</li>
+</ol>
+<h2 id="passo-3-abrir-o-jogo">Passo 3: Abrir o jogo</h2>
+<ol type="1">
+<li>Na pasta <strong>jogo</strong>, dê <strong>dois cliques</strong> em
+<code>ABRIR_JOGO_WINDOWS.bat</code>.
+<ul>
+<li>Se o Windows mostrar uma tela azul dizendo “O Windows protegeu o
+computador”, clique em <strong>Mais informações</strong> e depois em
+<strong>Executar assim mesmo</strong>. O arquivo só liga o servidor
+local; você pode abri-lo no Bloco de Notas para conferir.</li>
+</ul></li>
+<li>Vai abrir uma <strong>janela preta</strong>. Não feche essa janela
+enquanto estiver jogando.</li>
+<li>Depois de uns 2 segundos, o navegador abre sozinho no endereço
+<strong>http://localhost:8000</strong>.
+<ul>
+<li>Se não abrir, abra o Chrome ou o Edge e digite
+<code>localhost:8000</code> na barra de endereço.</li>
+</ul></li>
+<li>Espere a barra de carregamento chegar ao fim e clique em
+<strong>Clique para entrar</strong>.</li>
+<li>Para parar de jogar, feche o navegador e depois feche a janela
+preta.</li>
+</ol>
+<h2 id="se-algo-der-errado">Se algo der errado</h2>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>O que aparece</th>
+<th>O que fazer</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A janela preta diz “O Python não está instalado”</td>
+<td>Faça o Passo 2 e abra o <code>.bat</code> de novo.</td>
+</tr>
+<tr class="even">
+<td>O navegador diz “Não é possível acessar esse site”</td>
+<td>A janela preta foi fechada ou ainda está iniciando. Abra o
+<code>.bat</code> de novo e espere 5 segundos.</td>
+</tr>
+<tr class="odd">
+<td>A tela fica parada em “Preparando texturas…”</td>
+<td>Atualize a página com <strong>F5</strong>. Se continuar, me mande um
+print do console: aperte <strong>F12</strong> e abra a aba
+<strong>Console</strong>.</td>
+</tr>
+<tr class="even">
+<td>O jogo está lento</td>
+<td>Aperte <strong>F</strong> para ver o FPS e me diga o número.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="parte-2-colocar-na-internet-github-pages">PARTE 2: Colocar na
+internet (GitHub Pages)</h1>
+<p>Ao final desta parte, você terá um link como
+<code>https://seu-usuario.github.io/casa-da-vo/</code> que qualquer
+pessoa pode abrir, sem instalar nada.</p>
+<p>Vamos usar o <strong>GitHub Desktop</strong>, um programa gratuito em
+que tudo se faz com cliques. O site do GitHub não serve para isso porque
+não aceita arquivos maiores que 25 MB, e o modelo da casa tem 27 MB.</p>
+<h2 id="passo-1-criar-a-conta-no-github">Passo 1: Criar a conta no
+GitHub</h2>
+<ol type="1">
+<li>Acesse <strong>github.com</strong> e clique em <strong>Sign
+up</strong>.</li>
+<li>Preencha e-mail, senha e nome de usuário. <strong>Anote o nome de
+usuário</strong>, porque ele vai fazer parte do link.</li>
+<li>Confirme o e-mail.</li>
+</ol>
+<h2 id="passo-2-instalar-o-github-desktop">Passo 2: Instalar o GitHub
+Desktop</h2>
+<ol type="1">
+<li>Acesse <strong>desktop.github.com</strong> e clique em
+<strong>Download for Windows</strong>.</li>
+<li>Abra o arquivo baixado. Ele instala sozinho.</li>
+<li>Quando abrir, clique em <strong>Sign in to GitHub.com</strong>. O
+navegador vai pedir para autorizar: clique em <strong>Authorize
+desktop</strong>.</li>
+<li>Na tela “Configure Git”, deixe como está e clique em
+<strong>Finish</strong>.</li>
+</ol>
+<h2 id="passo-3-criar-o-repositório-a-pasta-do-projeto-no-github">Passo
+3: Criar o repositório (a “pasta” do projeto no GitHub)</h2>
+<ol type="1">
+<li>No GitHub Desktop, clique no menu <strong>File</strong> e depois em
+<strong>New repository…</strong></li>
+<li>Preencha:
+<ul>
+<li><strong>Name:</strong> <code>casa-da-vo</code> (sem acentos nem
+espaços; esse nome vai aparecer no link)</li>
+<li><strong>Local path:</strong> deixe o caminho que já aparece
+(normalmente <code>Documentos\GitHub</code>)</li>
+</ul></li>
+<li>Clique em <strong>Create repository</strong>.</li>
+</ol>
+<h2 id="passo-4-copiar-os-arquivos-do-jogo-para-o-repositório">Passo 4:
+Copiar os arquivos do jogo para o repositório</h2>
+<ol type="1">
+<li>No GitHub Desktop, clique no menu <strong>Repository</strong> e
+depois em <strong>Show in Explorer</strong>. Abre uma pasta chamada
+<code>casa-da-vo</code>, quase vazia.</li>
+<li>Em outra janela do Explorer, abra a pasta <strong>jogo</strong> que
+você descompactou na Parte 1.</li>
+<li>Dentro da pasta <strong>jogo</strong>, aperte <strong>Ctrl +
+A</strong> para selecionar tudo e <strong>Ctrl + C</strong> para
+copiar.</li>
+<li>Volte para a pasta <code>casa-da-vo</code> e aperte <strong>Ctrl +
+V</strong> para colar.
+<ul>
+<li>Se perguntar sobre substituir o <code>README.md</code>, escolha
+<strong>Substituir</strong>.</li>
+</ul></li>
+<li>Confira se o <code>index.html</code> ficou <strong>direto
+dentro</strong> da pasta <code>casa-da-vo</code>, e não dentro de uma
+subpasta <code>jogo</code>. Isso é importante.</li>
+</ol>
+<h2 id="passo-5-enviar-para-o-github">Passo 5: Enviar para o GitHub</h2>
+<ol type="1">
+<li>Volte ao GitHub Desktop. À esquerda aparece a lista de arquivos
+novos.</li>
+<li>No canto de baixo, à esquerda, no campo <strong>Summary</strong>,
+escreva: <code>primeira versão</code></li>
+<li>Clique no botão azul <strong>Commit to main</strong>.</li>
+<li>No topo, clique em <strong>Publish repository</strong>.</li>
+<li>Na janelinha que abrir, <strong>desmarque</strong> a opção
+<strong>Keep this code private</strong>. O GitHub Pages gratuito só
+funciona com repositório público.</li>
+<li>Clique em <strong>Publish repository</strong> e espere terminar o
+envio. Os cerca de 37 MB podem levar alguns minutos.</li>
+</ol>
+<h2 id="passo-6-ligar-o-github-pages">Passo 6: Ligar o GitHub Pages</h2>
+<ol type="1">
+<li>No GitHub Desktop, clique no menu <strong>Repository</strong> e
+depois em <strong>View on GitHub</strong>. Abre a página do repositório
+no navegador.</li>
+<li>Clique na aba <strong>Settings</strong>, com ícone de engrenagem, no
+topo da página.</li>
+<li>No menu da esquerda, clique em <strong>Pages</strong>.</li>
+<li>Em <strong>Build and deployment</strong>:
+<ul>
+<li>em <strong>Source</strong>, escolha <strong>Deploy from a
+branch</strong>;</li>
+<li>em <strong>Branch</strong>, escolha <strong>main</strong> e, ao
+lado, <strong>/ (root)</strong>;</li>
+<li>clique em <strong>Save</strong>.</li>
+</ul></li>
+<li>Espere de 1 a 3 minutos e atualize a página (F5). No topo vai
+aparecer <strong>“Your site is live at …”</strong> com o link.</li>
+<li>Clique no link para abrir o jogo. Esse é o link para
+compartilhar.</li>
+</ol>
+<h2 id="como-atualizar-depois">Como atualizar depois</h2>
+<p>Quando eu te mandar uma versão nova:</p>
+<ol type="1">
+<li>Copie os arquivos novos para a pasta <code>casa-da-vo</code>
+(Repository → Show in Explorer), substituindo os antigos.</li>
+<li>No GitHub Desktop, escreva um resumo (por exemplo,
+<code>ajuste de luz</code>), clique em <strong>Commit to main</strong> e
+depois em <strong>Push origin</strong>, no topo.</li>
+<li>Em 1 ou 2 minutos o link já mostra a versão nova. Se não mostrar,
+aperte <strong>Ctrl + F5</strong> no navegador.</li>
+</ol>
+<hr />
+<h1 id="no-celular">No celular</h1>
+<p>O jogo detecta sozinho quando está num celular ou tablet e muda três
+coisas:</p>
+<ul>
+<li><strong>Controles de toque:</strong> um círculo no canto esquerdo
+para andar, arrastar o dedo no resto da tela para olhar, e botões para
+pular (⤒), correr (») e pausar (☰).</li>
+<li><strong>Versão leve da casa:</strong> 8,5 MB em vez de 27 MB, com
+texturas de 2048 px. Carrega rápido no 4G e não estoura a memória do
+celular. Fica um pouco menos nítida de perto.</li>
+<li><strong>Mais leve para rodar:</strong> resolução limitada e sombras
+desligadas.</li>
+</ul>
+<h2 id="como-abrir-no-celular">Como abrir no celular</h2>
+<p>O jeito mais fácil é publicar primeiro (Parte 2) e abrir o link do
+GitHub Pages no navegador do celular (Chrome no Android, Safari no
+iPhone).</p>
+<ul>
+<li><strong>Android:</strong> o jogo entra em tela cheia e deitado ao
+tocar em “Toque para entrar”.</li>
+<li><strong>iPhone:</strong> o Safari não permite tela cheia em sites.
+Gire o celular para deitado. Para esconder a barra do navegador, toque
+em <strong>Compartilhar → Adicionar à Tela de Início</strong> e abra
+pelo ícone criado.</li>
+</ul>
+<h2 id="truques">Truques</h2>
+<ul>
+<li>No pause (☰), o painel de ajustes tem a pasta
+<strong>Depuração</strong>, com os mesmos atalhos do teclado: colisão,
+modo voo, posição, FPS e minimapa.</li>
+<li>Para ver a versão completa (27 MB) no celular, coloque
+<code>?hd</code> no fim do link, por exemplo
+<code>https://seu-usuario.github.io/casa-da-vo/?hd</code>.</li>
+<li>Para testar a versão leve no computador, use
+<code>?leve</code>.</li>
+</ul>
+<hr />
+<h1 id="controles">Controles</h1>
+<table>
+<thead>
+<tr class="header">
+<th>Tecla</th>
+<th>Ação</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>W A S D ou setas</td>
+<td>andar</td>
+</tr>
+<tr class="even">
+<td>Mouse</td>
+<td>olhar</td>
+</tr>
+<tr class="odd">
+<td>Shift</td>
+<td>correr</td>
+</tr>
+<tr class="even">
+<td>Espaço</td>
+<td>pular</td>
+</tr>
+<tr class="odd">
+<td>ESC</td>
+<td>soltar o mouse, pausar e abrir o painel de ajustes</td>
+</tr>
+<tr class="even">
+<td>M</td>
+<td>mostrar ou ocultar o minimapa</td>
+</tr>
+<tr class="odd">
+<td>F</td>
+<td>mostrar o FPS</td>
+</tr>
+<tr class="even">
+<td>V</td>
+<td>mostrar a malha de colisão (em verde)</td>
+</tr>
+<tr class="odd">
+<td>N</td>
+<td>modo voo, sem colisão. Espaço ou E sobe; C ou Q desce</td>
+</tr>
+<tr class="even">
+<td>P</td>
+<td>mostrar a posição atual (para escolher o ponto de nascimento)</td>
+</tr>
+<tr class="odd">
+<td>R</td>
+<td>voltar ao ponto de nascimento</td>
+</tr>
+</tbody>
+</table>
+<h2 id="painel-de-ajustes-aparece-quando-você-aperta-esc">Painel de
+ajustes (aparece quando você aperta ESC)</h2>
+<ul>
+<li><strong>Escala:</strong> o tamanho da casa. O padrão é 1, porque o
+escaneamento já está em metros.</li>
+<li><strong>Jogador:</strong> altura dos olhos, largura do corpo,
+velocidade e pulo.</li>
+<li><strong>Nascimento:</strong> onde o jogo começa. Ande até o lugar
+que quiser, aperte ESC e clique em <strong>Usar posição
+atual</strong>.</li>
+<li><strong>Luz:</strong> troque entre <strong>Original do
+escaneamento</strong> e <strong>Dinâmica</strong> e ajuste a exposição
+(o brilho).</li>
+<li><strong>Copiar configuração:</strong> copia todos os ajustes. Se
+quiser que eles valham para todo mundo que abrir o link, me mande o
+texto copiado, ou cole no arquivo <code>js/config.js</code> no lugar do
+que está lá.</li>
+</ul>
+<p>Os ajustes ficam salvos só no seu navegador. <strong>Restaurar
+padrão</strong> desfaz tudo.</p>
+<hr />
+<h1 id="limitações-conhecidas">Limitações conhecidas</h1>
+<ul>
+<li>As três portas da parede comprida dão para cômodos que não foram
+escaneados. Elas estão bloqueadas e aparecem como um vão escuro.</li>
+<li>As prateleiras da cozinha ficaram borradas, e há uma mancha cinza
+acima da prateleira de carretéis. Isso vem do próprio escaneamento.</li>
+<li>A cadeira gamer flutua um pouco, porque os pés dela não foram
+capturados.</li>
+<li>A “luz dinâmica” muda pouco a aparência, já que a luz real está
+gravada na textura.</li>
+</ul>
+<h1 id="arquivos-para-curiosos">Arquivos (para curiosos)</h1>
+<table>
+<thead>
+<tr class="header">
+<th>Arquivo</th>
+<th>O que é</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>index.html</code></td>
+<td>a página do jogo</td>
+</tr>
+<tr class="even">
+<td><code>ABRIR_JOGO_WINDOWS.bat</code></td>
+<td>liga o servidor local e abre o navegador</td>
+</tr>
+<tr class="odd">
+<td><code>js/config.js</code></td>
+<td>valores padrão (spawn, luz, velocidade…)</td>
+</tr>
+<tr class="even">
+<td><code>js/main.js</code></td>
+<td>cena, carregamento, luz, painel, minimapa</td>
+</tr>
+<tr class="odd">
+<td><code>js/jogador.js</code></td>
+<td>física do jogador (colisão, chão, degraus)</td>
+</tr>
+<tr class="even">
+<td><code>js/toque.js</code></td>
+<td>controles de toque do celular</td>
+</tr>
+<tr class="odd">
+<td><code>assets/casa.glb</code></td>
+<td>a casa em 3D para computador (27 MB)</td>
+</tr>
+<tr class="even">
+<td><code>assets/casa_movel.glb</code></td>
+<td>a casa em 3D para celular (8,5 MB)</td>
+</tr>
+<tr class="odd">
+<td><code>assets/colisao.glb</code></td>
+<td>a versão simplificada usada para colisão</td>
+</tr>
+<tr class="even">
+<td><code>assets/minimapa.jpg</code></td>
+<td>imagem do minimapa</td>
+</tr>
+<tr class="odd">
+<td><code>vendor/</code></td>
+<td>bibliotecas: Three.js 0.186.1 e three-mesh-bvh 0.9.16</td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>
